@@ -1,6 +1,13 @@
 name: Native builds and tests
+permissions:
+  contents: read
 on:
   workflow_dispatch:
+    inputs:
+      publish:
+        description: Attach tested POSIX bundles to the existing version release
+        type: boolean
+        default: false
   push:
     paths:
       - '**.py'
@@ -8,6 +15,8 @@ on:
       - '.github/workflows/build.yml'
 jobs:
   build:
+    permissions:
+      contents: write
     strategy:
       fail-fast: false
       matrix:
@@ -47,3 +56,20 @@ jobs:
           name: Blockwerk-${{ runner.os }}-${{ runner.arch }}
           path: dist/Blockwerk-*.tar.gz
           if-no-files-found: error
+      - name: Publish tested native Linux and macOS bundles
+        if: runner.os != 'Windows' && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && inputs.publish
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import hashlib, pathlib, platform
+          output = pathlib.Path('dist')
+          packages = sorted(output.glob('Blockwerk-*.tar.gz'))
+          assert len(packages) == 1
+          checksums = output / ('SHA256-' + platform.system() + '-' + platform.machine() + '.txt')
+          checksums.write_text(''.join(hashlib.file_digest(p.open('rb'), 'sha256').hexdigest() + '  ' + p.name + '\n' for p in packages), encoding='ascii')
+          PY
+          release_tag="v$(python -c 'from blockwerk.core import VERSION; print(VERSION)')"
+          gh release upload "$release_tag" dist/Blockwerk-*.tar.gz dist/SHA256-*.txt
