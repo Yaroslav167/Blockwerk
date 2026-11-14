@@ -1,0 +1,49 @@
+name: Native builds and tests
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**.py'
+      - 'requirements*.txt'
+      - '.github/workflows/build.yml'
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-24.04, ubuntu-24.04-arm, macos-15, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    env:
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Linux Qt dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libegl1 libopengl0 libxcb-cursor0 libdbus-1-3 fonts-dejavu-core
+      - name: Validate POSIX startup scripts
+        if: runner.os != 'Windows'
+        run: sh -n start-linux.sh start-macos.command
+      - run: python -m pip install -r requirements-build.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python tests/integration_releases.py
+      - run: python tools/build.py
+      - run: python tools/smoke_native.py
+      - run: python tools/archive.py
+      - name: Upload startup evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Evidence-${{ runner.os }}-${{ runner.arch }}
+          path: |
+            dist/smoke-*.png
+            dist/platform-check.json
+          if-no-files-found: warn
+      - name: Upload native bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: Blockwerk-${{ runner.os }}-${{ runner.arch }}
+          path: dist/Blockwerk-*.tar.gz
+          if-no-files-found: error
