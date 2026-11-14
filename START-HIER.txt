@@ -1,0 +1,74 @@
+Microsoft-Status 0.9.1: Eigene App-ID registriert und hinterlegt.
+Minecraft-API-Freigabe bleibt ausdrücklich offen; der lokale Modus bleibt erhalten.
+Eine vollständige echte Minecraft-Anmeldung ist weiterhin nicht bestätigt.
+Details: AUTH-STATUS.md. Ältere Hinweise zur fehlenden Registrierung sind überholt.
+
+BLOCKWERK 0.9.1
+
+Windows: gesamtes ZIP entpacken und Blockwerk.exe öffnen.
+
+SPRACHE / LANGUAGE:
+Oben rechts Deutsch oder English wählen. Die Auswahl wird gespeichert.
+Choose Deutsch or English at the top right. Your choice is saved.
+
+SKINS:
+Skins öffnen, einen der drei Blockwerk-Skins auswählen oder eigene PNGs hinzufügen.
+Vorschau mit der Maus drehen. Für lokales Spielen zuerst Spieldateien installieren,
+dann Lokales Skinpaket anwenden. Dies ändert Standardfiguren nur auf diesem Gerät.
+Ein echter Konto-Skin benötigt die noch fehlende freigegebene Microsoft-Anmeldung.
+Alternativ PNG exportieren und auf der offiziellen Minecraft-Profilseite hochladen.
+
+UPDATES:
+Unter Updates wird alle sieben Tage während der Nutzung nach veröffentlichten
+Launcher-Versionen gesucht. Der lokale Ausgabeordner mit Blockwerk-Updates.json
+muss erreichbar bleiben; auf anderen Geräten den Updateordner neu auswählen.
+Nach dem Download Installieren & Launcher neu starten verwenden. Die alte App
+bleibt als Sicherung erhalten. Minecraft/Mods/Welten werden nicht automatisch
+aktualisiert. Details und Einrichtung: SKINS-UND-UPDATES.md.
+
+WELTEN UND SNAPSHOTS:
+Unter Welten vorhandene Java-Spielstände finden und öffnen. Weitere saves-Ordner
+können hinzugefügt werden. Neue Welt in Minecraft startet das echte Spiel; dort
+Einzelspieler > Neue Welt erstellen wählen. Für externe Welten/Versionswechsel
+werden Spielkopien verwendet. Oben am Versionswähler Vollversionen oder Snapshots
+auswählen. Falls nötig unter Versionen den Katalog aktualisieren.
+Details: WELTEN-UND-SNAPSHOTS.md.
+
+NEU: Die Blocklandschaft im Hauptbildschirm ist animiert. Unten rechts im Bild
+kannst du die Animation pausieren und fortsetzen. Kein Internet dafür nötig.
+
+MODS:
+1. Mods & Loader öffnen.
+2. Profilname, Minecraft-Version und Forge/Fabric/Quilt/NeoForge wählen.
+3. Versionen laden, Loader-Version wählen, Profil erstellen & installieren.
+4. Passende Mod-JARs hinzufügen; benötigte Bibliotheken/API-Mods ebenfalls.
+5. Zum Spielen auswählen und den gewünschten Spielmodus verwenden.
+
+ANDERE INSTALLER:
+Eigenes Profil erstellen, Installer-Datei öffnen und im Installer den angezeigten
+Minecraft-Zielordner wählen. Danach installierte Version suchen und übernehmen.
+Nicht alle Installer-Formate oder Mod-Kombinationen sind kompatibel.
+
+SERVER OHNE LIMIT:
+Offline · Einzelspieler & Server auswählen. Im Spiel Mehrspieler > Server
+hinzufügen verwenden. Die Liste bleibt auch nach einem Neustart erhalten.
+Unter Server können zusätzlich unbegrenzt Launcher-Favoriten gespeichert werden.
+Server müssen lokale Profile zulassen; Version, Mods und Serverregeln müssen passen.
+Einen getrennten Community-Modus gibt es nicht mehr.
+
+OFFLINE:
+Offline · Einzelspieler & Server, lokalen Namen und Version wählen. Falls nötig einmal
+Spieldateien herunterladen (Internet, kein Microsoft-Konto erforderlich).
+
+ONLINE:
+Die neue Kontoseite zeigt Browser-Anmeldung, Fortschritt, Abbrechen und Kontostatus.
+Eine eigene für Minecraft freigegebene Microsoft-App-ID ist weiterhin nötig
+und nicht mitgeliefert. Ohne sie ist noch keine echte Online-Anmeldung möglich.
+Die Registrierung gehört zum Projektbetreiber. Siehe EINRICHTUNG.md.
+
+Details: MODS-UND-SERVER.md. Teststand: PRUEFBERICHT.md.
+Linux/macOS: Quellpakete mit Python-3.12-Startskript, weiterhin nicht nativ getestet.
+
+LINUX / MACOS: Python 3.12 installieren und sh start-linux.sh bzw.
+sh start-macos.command ausführen. Der erste Start benötigt Internet.
+Details zu Updates, nativem Build und Plattformgrenzen: PLATTFORMEN.md.
