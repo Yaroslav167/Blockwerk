@@ -81,7 +81,11 @@ class CoreTests(unittest.TestCase):
         self.assertTrue(self.service.accounts.session_only)
         self.assertFalse(self.service.accounts.path.exists())
         self.assertEqual(self.service.accounts.read()["name"], PROFILE["name"])
-        self.assertIsNone(core.AccountStore(self.root).read())
+        # A new process has no saved account once an empty keyring is available.
+        empty_keyring = Mock()
+        empty_keyring.get_password.return_value = None
+        with patch.object(core, "native_keyring", return_value=empty_keyring):
+            self.assertIsNone(core.AccountStore(self.root).read())
 
     @unittest.skipUnless(os.name == "nt", "Windows DPAPI")
     def test_native_windows_dpapi_roundtrip_when_available(self):

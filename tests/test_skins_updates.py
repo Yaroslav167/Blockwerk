@@ -221,7 +221,7 @@ class UpdateTests(unittest.TestCase):
         core.atomic_json(stage/'release.json',{'app':'Blockwerk','version':'0.10.0','owned_entries':['Blockwerk.exe','release.json']})
         original=Path.rename
         def rename(path,target):
-            if path==stage:raise OSError('TEST simulated rename failure')
+            if path==stage.resolve():raise OSError('TEST simulated rename failure')
             return original(path,target)
         with patch.object(Path,'rename',rename):
             with self.assertRaises(OSError):apply_update({'schema':1,'install_dir':str(install),'stage_dir':str(stage),'version':'0.10.0'},restart=False)
