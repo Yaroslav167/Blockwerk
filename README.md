@@ -1,3 +1,12 @@
+# Blockwerk · Downloads
+
+[Windows, Linux und macOS: Version 0.9.1 herunterladen](https://github.com/Yaroslav167/Blockwerk/releases/tag/v0.9.1)
+
+Die verteilten Pakete verwenden den öffentlichen GitHub-Release-Feed für Launcher-Updates.
+Ältere Hinweise auf den lokalen Ausgabeordner als einzigen Updatekanal sind überholt.
+Linux/macOS sind in dieser Veröffentlichung Quellpakete; native Build-Ergebnisse
+werden erst nach bestandenen Zielsystem-Prüfungen als solche bezeichnet.
+
 Microsoft-Status 0.9.1: Eigene App-ID registriert und hinterlegt.
 Minecraft-API-Freigabe bleibt ausdrücklich offen; der lokale Modus bleibt erhalten.
 Eine vollständige echte Minecraft-Anmeldung ist weiterhin nicht bestätigt.

@@ -31,7 +31,7 @@
     "PLATTFORMEN-0.9.0.md": "74c302a984f1a9484934cd9b68fabb2bb1b36313b48f88fb4f00efb1818872a6",
     "PLATTFORMEN.md": "74c302a984f1a9484934cd9b68fabb2bb1b36313b48f88fb4f00efb1818872a6",
     "PRUEFBERICHT.md": "ae8153994557bfe4415a5673d72bc7e34b03545e76c3613b74d847bc92288bc0",
-    "README.md": "ad8b0b7b7a922847aaef49b2e2069600b2fe7cbf039aa52bb2aa2b0f4e40b566",
+    "README.md": "9f08c1f083bdc92cbdbbd589ab3e9c6b188e291180dbb391ca884aeeb5ec76ea",
     "requirements-build.txt": "62d2297563d627ecc05af21002ca3659ca1714957a089e0d5a7e40ebdd2e5ed1",
     "requirements-lock-windows.txt": "cad7cd5b56c1824216948124a46191f3f9b86c1712e4347506fd06a22e138687",
     "requirements-lock.txt": "2ae991dadc1c74762c68f1a02197fd7cb0a6e43f9cbf2a09b6874142350da2ce",
@@ -62,7 +62,7 @@
     "tools/package_release.py": "7803a0450b5631174be75a6f643e75dbcd7657148e36988149b2bb12f2ba8a77",
     "tools/smoke_native.py": "b2c63aa842eff1a0604f1015e35510d248497122ce8139bf7b863ff1ae01a6d0",
     "tools/update_bootstrap.py": "2d32903c33915d0749ad91f91e3d86e80ace7dfcc59d57731c936a31be0e775f",
-    "update-source.json": "fc87eb5aef71dae2c77d3301f85643d8ce64e588d6057bf7eb4b6c2c36cbcf4a",
+    "update-source.json": "a79a4273757ee7bd887be865ff838401077e925e1c9fd48866a0e8ec59b2aa6b",
     "WELTEN-UND-SNAPSHOTS.md": "80675dbb5f63cc521ff54730cbbb9344f35f7c671fd154b92003447ef69dae98"
   }
 }
